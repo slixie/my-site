@@ -1,0 +1,113 @@
+body {
+  background-image: url(../pictures/nature2.jpg);
+  background-size: cover;
+}
+
+p {
+  display: inline-block;
+}
+
+.page {
+  margin: 15px 220px;
+  border: 1px solid rgba(0, 0, 0, 0.26);
+  border-radius: 10px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.534);
+}
+
+.typeCity {
+  text-align: center;
+  margin-top: 13px;
+}
+
+.heading {
+  margin-top: 16px;
+  padding: 0;
+}
+
+.city-name {
+  padding-top: 6px;
+  font-size: 22px;
+  margin-left: 18px;
+  font-weight: 500;
+}
+
+.heading-item {
+  padding-left: 150px;
+  font-size: 17px;
+  text-align: right;
+}
+
+.mainPage {
+  background-color: rgba(255, 255, 255, 0.822);
+  padding: 30px;
+  margin: 0 10px 0 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 7px rgba(75, 75, 75, 0.274);
+}
+
+.currentWeather {
+  margin-bottom: 10px;
+  margin-left: 14px;
+  font-size: 17px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.719);
+}
+
+.cent {
+  text-align: center;
+}
+
+.city-temperature {
+  font-size: 57px;
+}
+
+.sky {
+  font-size: 20px;
+  margin-top: 16px;
+}
+
+.iconLocation {
+  font-size: 26px;
+}
+
+.icon {
+  font-size: 50px;
+}
+
+.units {
+  position: relative;
+  top: -30px;
+}
+
+.statistics {
+  display: inline;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.forecast {
+  margin-top: 20px;
+  margin-left: 14px;
+  font-size: 17px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.808);
+}
+
+.forecastDays {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.822);
+  padding: 7px 5px;
+  margin: 0 10px 10px 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 7px rgba(75, 75, 75, 0.274);
+}
+
+.forecastIcon {
+  font-size: 40px;
+  margin: 12px 0 12px 0;
+}
+
+.endName {
+  margin-left: 180px;
+}
