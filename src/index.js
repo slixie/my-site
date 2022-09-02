@@ -33,9 +33,8 @@ function showTemperature(response) {
   let tempa = (document.querySelector("#cityTemp").innerHTML = Math.round(
     response.data.main.temp
   ));
-  let feels = (document.querySelector("#feelsLike").innerHTML = Math.round(
-    response.data.main.feels_like
-  ));
+  let feels = (document.querySelector("#feelsLike").innerHTML =
+    Math.round(response.data.main.feels_like) + "°C");
   let wind_spees = (document.querySelector("#windSpeed").innerHTML = Math.round(
     response.data.wind.speed
   ));
@@ -57,6 +56,8 @@ function showTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  celsiusTemp = response.data.main.temp;
 }
 
 function search(city) {
@@ -71,8 +72,6 @@ function searchCity(event) {
   search(city.value);
   city.value = " ";
 }
-
-search("New York");
 
 function searchLocation(position) {
   let apiKey = "fc5e25b8c524cb4b4ebd4ca86a442c09";
@@ -93,26 +92,31 @@ searchForm.addEventListener("submit", searchCity);
 
 function toCelsius(event) {
   event.preventDefault();
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
   let celsiusTemperature = document.querySelector("#cityTemp");
-  celsiusTemperature.innerHTML = response.data.main.temp;
+  celsiusTemperature.innerHTML = Math.round(celsiusTemp);
 }
 
 function toFahrenheit(event) {
   event.preventDefault();
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
   let fahrenheitTemperature = document.querySelector("#cityTemp");
-  fahrenheitTemperature.innerHTML = Math.round(
-    response.data.main.temp * 1,
-    8 + 32
-  );
+  fahrenheitTemperature.innerHTML = Math.round((celsiusTemp * 9) / 5 + 32);
 }
 
-let celsiusLink = document.querySelector("#celsius-link");
+let celsiusTemp = null;
+
+let celsiusLink = document.querySelector(".celsius-link");
 celsiusLink.addEventListener("click", toCelsius);
 
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
+let fahrenheitLink = document.querySelector(".fahrenheit-link");
 fahrenheitLink.addEventListener("click", toFahrenheit);
 
 //
 
 let currentButton = document.querySelector("#current-location-button");
 currentButton.addEventListener("click", getCurrentLocation);
+
+search("New York");
