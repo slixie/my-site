@@ -1,5 +1,5 @@
 body {
-  background-image: url(../pictures/nature0.jpg);
+  background-image: url(../pictures/pexels-tyler-lastovich-937782.jpg);
   background-size: cover;
 }
 
@@ -8,11 +8,10 @@ p {
 }
 
 .page {
-  margin: 15px 220px;
-  border: 1px solid rgba(0, 0, 0, 0.26);
-  border-radius: 10px;
-  padding: 35px 20px 20px 20px;
-  background-color: rgba(255, 255, 255, 0.63);
+  margin: 20px 250px;
+  border-radius: 28px;
+  padding: 35px 35px 20px 35px;
+  background-color: rgba(255, 255, 255, 0.568);
 }
 
 .typeCity {
@@ -20,20 +19,28 @@ p {
 }
 
 .search-text {
-  background-color: rgba(255, 255, 255, 0.822);
-  padding: 3px 9px;
+  background-color: rgba(255, 255, 255, 0.904);
+  padding: 6px 16px;
   font-size: 16px;
-  border-color: rgba(0, 0, 0, 0.425);
+  border-color: rgba(0, 0, 0, 0.226);
   border-width: 1px;
-  border-radius: 2px;
+  border-radius: 8px;
 }
 
 .search-btn,
 .current {
-  padding: 3px 9px;
-  border-color: rgba(0, 0, 0, 0.425);
+  padding: 6px 16px;
+  border-color: rgba(0, 0, 0, 0.226);
   border-width: 1px;
-  border-radius: 2px;
+  border-radius: 8px;
+  color: #a76462;
+  transition: transform 0.2s;
+}
+
+.search-btn:hover,
+.current:hover {
+  color: #7c4847;
+  transform: scale(1.05);
 }
 
 .heading {
@@ -43,9 +50,10 @@ p {
 
 .city-name {
   padding-top: 6px;
-  font-size: 30px;
+  font-size: 31px;
   margin-left: 18px;
-  font-weight: 500;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.822);
 }
 
 .heading-item {
@@ -59,7 +67,7 @@ p {
   background-color: rgba(255, 255, 255, 0.822);
   padding: 30px;
   margin: 0 10px 0 10px;
-  border-radius: 5px;
+  border-radius: 15px;
   box-shadow: 0 0 7px rgba(75, 75, 75, 0.274);
 }
 
@@ -86,7 +94,7 @@ p {
 
 .iconLocation {
   font-size: 27px;
-  color: rgb(170, 22, 22);
+  color: #a76462;
 }
 
 .icon {
@@ -115,9 +123,9 @@ p {
 .forecastDays {
   text-align: center;
   background-color: rgba(255, 255, 255, 0.822);
-  padding: 7px 5px;
+  padding: 15px 5px;
   margin: 0 10px 10px 10px;
-  border-radius: 5px;
+  border-radius: 15px;
   box-shadow: 0 0 7px rgba(75, 75, 75, 0.274);
 }
 
@@ -130,13 +138,29 @@ p {
   display: block;
   text-align: center;
   font-weight: 500;
+  font-family: "Lobster", cursive;
 }
 
 .open-source-code {
-  color: rgb(170, 22, 22);
+  color: #a05c59;
   text-decoration: none;
 }
 
 .open-source-code:hover {
-  color: rgb(116, 8, 8);
+  color: #7c4847;
+  text-decoration: underline;
+}
+
+#celsius-link,
+#fahrenheit-link {
+  color: #a76462;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 19px;
+}
+
+#celsius-link:hover,
+#fahrenheit-link:hover {
+  color: #7c4847;
+  text-decoration: underline;
 }
