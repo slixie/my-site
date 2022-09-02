@@ -39,11 +39,10 @@ function showTemperature(response) {
   ));
   let humidity = (document.querySelector("#humidity").innerHTML =
     response.data.main.humidity);
-  let visibility = (document.querySelector("#visibility").innerHTML =
-    Math.round(response.data.visibility / 5280));
-  let pressure = (document.querySelector("#pressure").innerHTML = Math.round(
-    response.data.main.pressure * 0.0295301
-  ));
+  let tempMax = (document.querySelector("#temp_max").innerHTML =
+    Math.round(response.data.main.temp_max) + "°C");
+  let tempMin = (document.querySelector("#temp_min").innerHTML =
+    Math.round(response.data.main.temp_min) + "°C");
   let description = (document.querySelector("#description").innerHTML =
     response.data.weather[0].description);
   let time = (document.querySelector("#currentTime").innerHTML = formatDate(
@@ -56,7 +55,10 @@ function showTemperature(response) {
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
+  celsiusFeel = response.data.main.feels_like;
   celsiusTemp = response.data.main.temp;
+  celsiusMax = response.data.main.temp_max;
+  celsiusMin = response.data.main.temp_min;
 }
 
 function search(city) {
@@ -90,6 +92,12 @@ function toCelsius(event) {
   celsiusLink.classList.add("active");
   let celsiusTemperature = document.querySelector("#cityTemp");
   celsiusTemperature.innerHTML = Math.round(celsiusTemp);
+  let celsiusFeelsLike = document.querySelector("#feelsLike");
+  celsiusFeelsLike.innerHTML = Math.round(celsiusFeel) + "°C";
+  let tempMaxCelsius = document.querySelector("#temp_max");
+  tempMaxCelsius.innerHTML = Math.round(celsiusMax) + "°C";
+  let tempMinCelsius = document.querySelector("#temp_min");
+  tempMinCelsius.innerHTML = Math.round(celsiusMin) + "°C";
 }
 
 function toFahrenheit(event) {
@@ -98,8 +106,17 @@ function toFahrenheit(event) {
   fahrenheitLink.classList.add("active");
   let fahrenheitTemperature = document.querySelector("#cityTemp");
   fahrenheitTemperature.innerHTML = Math.round((celsiusTemp * 9) / 5 + 32);
+  let fahrenheitFeelsLike = document.querySelector("#feelsLike");
+  fahrenheitFeelsLike.innerHTML = Math.round((celsiusFeel * 9) / 5 + 32) + "°F";
+  let tempMaxFahrenheit = document.querySelector("#temp_max");
+  tempMaxFahrenheit.innerHTML = Math.round((celsiusMax * 9) / 5 + 32) + "°F";
+  let tempMinFahrenheit = document.querySelector("#temp_min");
+  tempMinFahrenheit.innerHTML = Math.round((celsiusMin * 9) / 5 + 32) + "°F";
 }
 
+let celsiusMax = null;
+let celsiusMin = null;
+let celsiusFeel = null;
 let celsiusTemp = null;
 
 let searchForm = document.querySelector("#enterCity");
@@ -114,4 +131,4 @@ fahrenheitLink.addEventListener("click", toFahrenheit);
 let currentButton = document.querySelector("#current-location-button");
 currentButton.addEventListener("click", getCurrentLocation);
 
-search("Lviv");
+search("New York");
