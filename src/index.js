@@ -67,9 +67,12 @@ function search(city) {
 
 function searchCity(event) {
   event.preventDefault();
-  let city = document.querySelector("#searchInput").value;
-  search(city);
+  let city = document.querySelector("#searchInput");
+  search(city.value);
+  city.value = " ";
 }
+
+search("New York");
 
 function searchLocation(position) {
   let apiKey = "fc5e25b8c524cb4b4ebd4ca86a442c09";
@@ -113,5 +116,3 @@ fahrenheitLink.addEventListener("click", toFahrenheit);
 
 let currentButton = document.querySelector("#current-location-button");
 currentButton.addEventListener("click", getCurrentLocation);
-
-search("New York");
