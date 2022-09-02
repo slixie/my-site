@@ -1,5 +1,5 @@
 let now = new Date();
-let p = document.querySelector("#currentTime");
+let time = document.querySelector("#currentTime");
 
 let days = [
   "Sunday",
@@ -22,7 +22,7 @@ if (hours < 10) {
   hours = `0${hours}`;
 }
 
-p.innerHTML = `${day} ${hours}:${minutes}`;
+time.innerHTML = `${day} ${hours}:${minutes}`;
 
 //2
 function showTemperature(response) {
@@ -45,6 +45,8 @@ function showTemperature(response) {
   let pressure = (document.querySelector("#pressure").innerHTML = Math.round(
     response.data.main.pressure * 0.0295301
   ));
+  let description = (document.querySelector("#description").innerHTML =
+    response.data.weather[0].description);
 }
 
 function search(city) {
@@ -79,20 +81,23 @@ searchForm.addEventListener("submit", searchCity);
 function toCelsius(event) {
   event.preventDefault();
   let celsiusTemperature = document.querySelector("#cityTemp");
-  celsiusTemperature.innerHTML = 19;
+  celsiusTemperature.innerHTML = response.data.main.temp;
 }
 
 function toFahrenheit(event) {
   event.preventDefault();
   let fahrenheitTemperature = document.querySelector("#cityTemp");
-  fahrenheitTemperature.innerHTML = 66;
+  fahrenheitTemperature.innerHTML = Math.round(
+    response.data.main.temp * 1,
+    8 + 32
+  );
 }
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", toFahrenheit);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", toCelsius);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", toFahrenheit);
 
 //
 

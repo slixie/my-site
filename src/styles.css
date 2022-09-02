@@ -79,7 +79,7 @@ p {
   color: rgba(0, 0, 0, 0.719);
 }
 
-.cent {
+.center {
   text-align: center;
 }
 
@@ -90,6 +90,7 @@ p {
 .sky {
   font-size: 20px;
   margin-top: 16px;
+  text-transform: capitalize;
 }
 
 .iconLocation {
@@ -118,6 +119,8 @@ p {
   font-size: 17px;
   font-weight: 500;
   color: rgba(0, 0, 0, 0.808);
+  position: relative;
+  bottom: -7px;
 }
 
 .forecastDays {
