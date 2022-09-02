@@ -40,6 +40,11 @@ function showTemperature(response) {
   ));
   let humidity = (document.querySelector("#humidity").innerHTML =
     response.data.main.humidity);
+  let visibility = (document.querySelector("#visibility").innerHTML =
+    Math.round(response.data.visibility / 5280));
+  let pressure = (document.querySelector("#pressure").innerHTML = Math.round(
+    response.data.main.pressure * 0.0295301
+  ));
 }
 
 function search(city) {
