@@ -14,7 +14,8 @@ p {
   background-color: rgba(255, 255, 255, 0.568);
 }
 
-.typeCity {
+.typeCity,
+.center {
   text-align: center;
 }
 
@@ -45,21 +46,25 @@ p {
 
 .heading {
   margin-top: 16px;
-  padding: 0;
 }
 
 .city-name {
+  color: rgba(0, 0, 0, 0.822);
   padding-top: 6px;
   font-size: 31px;
   margin-left: 18px;
   font-weight: 600;
-  color: rgba(0, 0, 0, 0.822);
+}
+
+.cityName {
+  position: relative;
+  left: -6px;
 }
 
 .heading-item {
   display: block;
-  font-size: 19px;
   text-align: center;
+  font-size: 19px;
   font-weight: 500;
 }
 
@@ -79,26 +84,24 @@ p {
   color: rgba(0, 0, 0, 0.719);
 }
 
-.center {
-  text-align: center;
-}
-
 .city-temperature {
   font-size: 57px;
 }
 
-.sky {
+.weather_description {
   font-size: 20px;
   margin-top: 16px;
   text-transform: capitalize;
 }
 
-.iconLocation {
+.icon_current_location {
   font-size: 27px;
   color: #a76462;
+  position: relative;
+  left: -4px;
 }
 
-.icon {
+.main_icon {
   position: relative;
   top: -15px;
   max-width: 85px;
@@ -154,10 +157,6 @@ p {
 .open-source-code:hover {
   color: #7c4847;
   text-decoration: underline;
-}
-
-.active {
-  color: green;
 }
 
 .celsius-link,
