@@ -69,6 +69,7 @@ function displayForecast(response) {
       </div>
     </div> 
     `;
+      celsiusMaxx = forecastDay.temp.max;
     }
   });
 
@@ -157,7 +158,7 @@ function forecastToCelsius() {
   let tempMax = document.querySelectorAll(".forecast_day_temperature_max");
   tempMax.forEach(function (temp) {
     let a = temp.innerHTML;
-    temp.innerHTML = 1;
+    temp.innerHTML = celsiusMaxx;
   });
   let tempMin = document.querySelectorAll(".forecast_day_temperature_min");
   tempMin.forEach(function (temp) {
@@ -232,7 +233,7 @@ searchForm.addEventListener("submit", searchCity);
 
 let currentButton = document.querySelector("#current-location-button");
 currentButton.addEventListener("click", getCurrentLocation);
-
+let celsiusMaxx = null;
 let celsiusMax = null;
 let celsiusMin = null;
 let celsiusFeel = null;
