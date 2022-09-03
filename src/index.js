@@ -69,8 +69,6 @@ function displayForecast(response) {
       </div>
     </div> 
     `;
-      celsiusMaxx = forecastDay.temp.max;
-      celsiusMinn = forecastDay.temp.min;
     }
   });
 
@@ -153,36 +151,6 @@ function getCurrentLocation(event) {
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
 
-//conversion of degrees to Celsius in the weather forecast
-
-function forecastToCelsius() {
-  let tempMax = document.querySelectorAll(".forecast_day_temperature_max");
-  tempMax.forEach(function (temp) {
-    let a = temp.innerHTML;
-    temp.innerHTML = celsiusMaxx;
-  });
-  let tempMin = document.querySelectorAll(".forecast_day_temperature_min");
-  tempMin.forEach(function (temp) {
-    let a = temp.innerHTML;
-    temp.innerHTML = celsiusMinn;
-  });
-}
-
-//conversion of degrees to Fahrenheit in the weather forecast
-
-function forecastToFahrenheit() {
-  let tempMax = document.querySelectorAll(".forecast_day_temperature_max");
-  tempMax.forEach(function (temp) {
-    let a = temp.innerHTML;
-    temp.innerHTML = 3;
-  });
-  let tempMin = document.querySelectorAll(".forecast_day_temperature_min");
-  tempMin.forEach(function (temp) {
-    let a = temp.innerHTML;
-    temp.innerHTML = 4;
-  });
-}
-
 //converting degrees to Celsius
 
 function toCelsius(event) {
@@ -235,8 +203,6 @@ searchForm.addEventListener("submit", searchCity);
 let currentButton = document.querySelector("#current-location-button");
 currentButton.addEventListener("click", getCurrentLocation);
 
-let celsiusMaxx = null;
-let celsiusMinn = null;
 let celsiusMax = null;
 let celsiusMin = null;
 let celsiusFeel = null;
