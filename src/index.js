@@ -142,6 +142,32 @@ function getCurrentLocation(event) {
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
 
+function transformToС() {
+  let tempMax = document.querySelectorAll(".forecast_day_temperature_max");
+  tempMax.forEach(function (temp) {
+    let a = temp.innerHTML;
+    temp.innerHTML = 1;
+  });
+  let tempMin = document.querySelectorAll(".forecast_day_temperature_min");
+  tempMin.forEach(function (temp) {
+    let a = temp.innerHTML;
+    temp.innerHTML = 2;
+  });
+}
+
+function transformToF() {
+  let tempMax = document.querySelectorAll(".forecast_day_temperature_max");
+  tempMax.forEach(function (temp) {
+    let a = temp.innerHTML;
+    temp.innerHTML = 3;
+  });
+  let tempMin = document.querySelectorAll(".forecast_day_temperature_min");
+  tempMin.forEach(function (temp) {
+    let a = temp.innerHTML;
+    temp.innerHTML = 4;
+  });
+}
+
 function toCelsius(event) {
   event.preventDefault();
   fahrenheitLink.classList.remove("active");
@@ -157,6 +183,7 @@ function toCelsius(event) {
   tempMaxCelsius.innerHTML = Math.round(celsiusMax) + "°C";
   let tempMinCelsius = document.querySelector("#temp_min");
   tempMinCelsius.innerHTML = Math.round(celsiusMin) + "°C";
+  transformToС();
 }
 
 function toFahrenheit(event) {
@@ -174,6 +201,7 @@ function toFahrenheit(event) {
   tempMaxFahrenheit.innerHTML = Math.round((celsiusMax * 9) / 5 + 32) + "°F";
   let tempMinFahrenheit = document.querySelector("#temp_min");
   tempMinFahrenheit.innerHTML = Math.round((celsiusMin * 9) / 5 + 32) + "°F";
+  transformToF();
 }
 
 let celsiusMax = null;
