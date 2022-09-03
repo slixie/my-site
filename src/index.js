@@ -1,3 +1,5 @@
+//set hour and day
+
 function formatDate(timestamp) {
   let date = new Date(timestamp);
 
@@ -32,6 +34,8 @@ function formatDay(timeStamp) {
 
   return days[day];
 }
+
+//set the weather forecast
 
 function displayForecast(response) {
   console.log(response.data.daily);
@@ -72,12 +76,16 @@ function displayForecast(response) {
   forecastElement.innerHTML = forecastHTML;
 }
 
+//forecast
+
 function getForecast(coordinates) {
   console.log(coordinates);
   let apiKey = "c95d60a1e3adbeb286133f1ebebc2579";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
 }
+
+//set the current weather to the site
 
 function showTemperature(response) {
   console.log(response.data);
@@ -117,6 +125,8 @@ function showTemperature(response) {
   getForecast(response.data.coord);
 }
 
+//current weather data
+
 function search(city) {
   let apiKey = "fc5e25b8c524cb4b4ebd4ca86a442c09";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
@@ -133,7 +143,6 @@ function searchCity(event) {
 function searchLocation(position) {
   let apiKey = "fc5e25b8c524cb4b4ebd4ca86a442c09";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
-
   axios.get(apiUrl).then(showTemperature);
 }
 
@@ -142,7 +151,9 @@ function getCurrentLocation(event) {
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
 
-function transformToС() {
+//conversion of degrees to Celsius in the weather forecast
+
+function forecastToCelsius() {
   let tempMax = document.querySelectorAll(".forecast_day_temperature_max");
   tempMax.forEach(function (temp) {
     let a = temp.innerHTML;
@@ -155,7 +166,9 @@ function transformToС() {
   });
 }
 
-function transformToF() {
+//conversion of degrees to Fahrenheit in the weather forecast
+
+function forecastToFahrenheit() {
   let tempMax = document.querySelectorAll(".forecast_day_temperature_max");
   tempMax.forEach(function (temp) {
     let a = temp.innerHTML;
@@ -167,6 +180,8 @@ function transformToF() {
     temp.innerHTML = 4;
   });
 }
+
+//converting degrees to Celsius
 
 function toCelsius(event) {
   event.preventDefault();
@@ -183,8 +198,10 @@ function toCelsius(event) {
   tempMaxCelsius.innerHTML = Math.round(celsiusMax) + "°C";
   let tempMinCelsius = document.querySelector("#temp_min");
   tempMinCelsius.innerHTML = Math.round(celsiusMin) + "°C";
-  transformToС();
+  forecastToCelsius();
 }
+
+//converting degrees to Fahrenheit
 
 function toFahrenheit(event) {
   event.preventDefault();
@@ -201,16 +218,8 @@ function toFahrenheit(event) {
   tempMaxFahrenheit.innerHTML = Math.round((celsiusMax * 9) / 5 + 32) + "°F";
   let tempMinFahrenheit = document.querySelector("#temp_min");
   tempMinFahrenheit.innerHTML = Math.round((celsiusMin * 9) / 5 + 32) + "°F";
-  transformToF();
+  forecastToFahrenheit();
 }
-
-let celsiusMax = null;
-let celsiusMin = null;
-let celsiusFeel = null;
-let celsiusTemp = null;
-
-let searchForm = document.querySelector("#enterCity");
-searchForm.addEventListener("submit", searchCity);
 
 let celsiusLink = document.querySelector(".celsius-link");
 celsiusLink.addEventListener("click", toCelsius);
@@ -218,7 +227,17 @@ celsiusLink.addEventListener("click", toCelsius);
 let fahrenheitLink = document.querySelector(".fahrenheit-link");
 fahrenheitLink.addEventListener("click", toFahrenheit);
 
+let searchForm = document.querySelector("#enterCity");
+searchForm.addEventListener("submit", searchCity);
+
 let currentButton = document.querySelector("#current-location-button");
 currentButton.addEventListener("click", getCurrentLocation);
+
+let celsiusMax = null;
+let celsiusMin = null;
+let celsiusFeel = null;
+let celsiusTemp = null;
+
+//initial weather info
 
 search("New York");
