@@ -25,6 +25,35 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#weather_forecast");
+
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thi", "Fri"];
+
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+    <div class="col-2">
+      <div class="forecast_day">${day}</div>
+      <img
+        src="http://openweathermap.org/img/wn/11d@2x.png"
+        alt="weather icon"
+        width="65px"
+      />
+      <div class="forecast_day_temperature">
+        <span class="forecast_day_temperature_min">20°</span>/
+        <span class="forecast_day_temperature_max">24°</span>
+      </div>
+    </div> 
+    `;
+  });
+
+  forecastHTML = forecastHTML + "</div>";
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function showTemperature(response) {
   console.log(response.data);
   let city = (document.querySelector("#cityName").innerHTML =
@@ -90,10 +119,13 @@ function toCelsius(event) {
   event.preventDefault();
   fahrenheitLink.classList.remove("active");
   celsiusLink.classList.add("active");
+
   let celsiusTemperature = document.querySelector("#cityTemp");
   celsiusTemperature.innerHTML = Math.round(celsiusTemp);
+
   let celsiusFeelsLike = document.querySelector("#feelsLike");
   celsiusFeelsLike.innerHTML = Math.round(celsiusFeel) + "°C";
+
   let tempMaxCelsius = document.querySelector("#temp_max");
   tempMaxCelsius.innerHTML = Math.round(celsiusMax) + "°C";
   let tempMinCelsius = document.querySelector("#temp_min");
@@ -104,10 +136,13 @@ function toFahrenheit(event) {
   event.preventDefault();
   celsiusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
+
   let fahrenheitTemperature = document.querySelector("#cityTemp");
   fahrenheitTemperature.innerHTML = Math.round((celsiusTemp * 9) / 5 + 32);
+
   let fahrenheitFeelsLike = document.querySelector("#feelsLike");
   fahrenheitFeelsLike.innerHTML = Math.round((celsiusFeel * 9) / 5 + 32) + "°F";
+
   let tempMaxFahrenheit = document.querySelector("#temp_max");
   tempMaxFahrenheit.innerHTML = Math.round((celsiusMax * 9) / 5 + 32) + "°F";
   let tempMinFahrenheit = document.querySelector("#temp_min");
@@ -132,3 +167,4 @@ let currentButton = document.querySelector("#current-location-button");
 currentButton.addEventListener("click", getCurrentLocation);
 
 search("New York");
+displayForecast();

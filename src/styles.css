@@ -8,9 +8,9 @@ p {
 }
 
 .page {
-  margin: 20px 250px;
+  margin: 45px 250px;
   border-radius: 28px;
-  padding: 35px 35px 20px 35px;
+  padding: 35px 25px 20px 25px;
   background-color: rgba(255, 255, 255, 0.568);
 }
 
@@ -59,6 +59,8 @@ p {
 .cityName {
   position: relative;
   left: -6px;
+  font-family: "Lobster";
+  font-weight: 400;
 }
 
 .heading-item {
@@ -99,12 +101,12 @@ p {
   color: #a76462;
   position: relative;
   left: -4px;
+  top: -2px;
 }
 
 .main_icon {
   position: relative;
   top: -15px;
-  max-width: 85px;
 }
 
 .units {
@@ -128,18 +130,13 @@ p {
   bottom: -7px;
 }
 
-.forecastDays {
+.weather_forecast {
   text-align: center;
   background-color: rgba(255, 255, 255, 0.966);
   padding: 15px 5px;
   margin: 0 10px 10px 10px;
   border-radius: 15px;
   box-shadow: 0 0 7px rgba(75, 75, 75, 0.274);
-}
-
-.forecastIcon {
-  font-size: 40px;
-  margin: 12px 0 12px 0;
 }
 
 .credit {
