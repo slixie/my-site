@@ -117,7 +117,12 @@ p {
 .statistics {
   display: inline;
   text-align: center;
-  margin-top: 10px;
+  margin-top: 13px;
+}
+
+.statistic {
+  font-weight: 500;
+  color: rgba(5, 5, 5, 0.836);
 }
 
 .forecast {
@@ -137,6 +142,20 @@ p {
   margin: 0 10px 10px 10px;
   border-radius: 15px;
   box-shadow: 0 0 7px rgba(75, 75, 75, 0.274);
+}
+
+.forecast_day,
+.forecast_day_temperature_max {
+  font-weight: 500;
+}
+
+.forecast_day_temperature_max {
+  font-weight: 500;
+  margin-left: 4px;
+}
+
+.forecast_day_temperature_min {
+  color: rgb(71, 70, 70);
 }
 
 .credit {
